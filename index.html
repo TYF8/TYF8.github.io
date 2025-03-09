@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BroCode - Encode/Decode Tool</title>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Font Awesome for Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="title">BroCode</h1>
+
+      <!-- Key and Matrix Input Section -->
+      <div class="input-section">
+        <div class="input-group">
+          <label for="key">Enter Key (6 uppercase letters):</label>
+          <input
+            type="text"
+            id="key"
+            maxlength="6"
+            placeholder="e.g., CHAISE"
+          />
+        </div>
+        <div class="input-group">
+          <label for="matrix">Enter Matrix (flat array format):</label>
+          <textarea
+            id="matrix"
+            placeholder='e.g., [[0,0,"a"], [0,1,"b"], ...]'
+          ></textarea>
+          <button onclick="generateRandomMatrix()">
+            Generate Random Matrix
+          </button>
+        </div>
+        <button class="done-button" onclick="setupCodingSection()">Done</button>
+      </div>
+
+      <!-- Coding/Decoding Section (Hidden Initially) -->
+      <div class="coding-section hidden">
+        <div class="mode-buttons">
+          <button id="encodeButton" class="active" onclick="encodeMessage()">
+            Encode
+          </button>
+          <button id="decodeButton" onclick="decodeMessage()">Decode</button>
+        </div>
+
+        <div class="text-areas">
+          <div class="input-group">
+            <label for="inputText">Input (Editable):</label>
+            <textarea
+              id="inputText"
+              placeholder="Enter your message here..."
+            ></textarea>
+          </div>
+          <div class="input-group">
+            <label for="outputText">Output (Copy Only):</label>
+            <textarea
+              id="outputText"
+              readonly
+              placeholder="Your encoded/decoded message will appear here..."
+            ></textarea>
+          </div>
+        </div>
+
+        <div class="buttons">
+          <button onclick="copyOutput()">Copy Output</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
